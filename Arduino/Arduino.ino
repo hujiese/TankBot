@@ -7,6 +7,8 @@ char flagLZ = 'T';
 char flagLZ_p = 'T';
 char flagRZ = 'T';
 char flagRZ_p = 'T';
+// Forword: Y--A1 B--D7
+// Left: X--A0 B--D8
 void setup() 
 { 
   Serial.begin(9600); 

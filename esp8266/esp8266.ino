@@ -5,9 +5,12 @@ const char* password = "myfather";
 
 const char* host = "192.168.12.1";
 
+const int LED = 5; //D1
 
 void setup()
 {
+  pinMode(LED, OUTPUT);
+  digitalWrite(LED, LOW);
   Serial.begin(9600);
   Serial.printf("Connecting to %s ", ssid);
   WiFi.begin(ssid, password);
@@ -27,6 +30,7 @@ void loop()
   {
     Serial.println("connected");
     while(client.connected()){
+      digitalWrite(LED, HIGH);
       //Serial.println("[Sending a message]");
       //client.print("hello");
       //delay(500);
@@ -44,6 +48,7 @@ void loop()
         }
       }
     }
+    digitalWrite(LED, LOW);
     client.stop();
     Serial.println("\n[Disconnected]");
   }
